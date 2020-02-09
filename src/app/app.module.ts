@@ -17,16 +17,21 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { MenuModule } from 'primeng/menu';
 
 // componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/components/login/login.component';
+import { HomeComponent } from './core/components/home/home.component';
 
 // servicios
 import { AuthService } from './core/services/auth.service';
+import { HeaderService } from './core/services/header.service';
 
 // Rutas
 import {RouterModule, Routes} from '@angular/router';
+import { HeaderComponent } from './core/components/comunes/header/header.component';
+
 
 const routes: Routes = [
   {
@@ -37,13 +42,19 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -56,11 +67,13 @@ const routes: Routes = [
     InputTextModule,
     CheckboxModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    MenuModule
   ],
   providers: [
     AuthService,
-    MessageService
+    MessageService,
+    HeaderService
   ],
   bootstrap: [AppComponent]
 })

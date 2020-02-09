@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Usuario } from '../../models/usuario';
 import { MessageService } from 'primeng/api';
 import swal from 'sweetalert2';
+import { HeaderService } from '../../services/header.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authSRV: AuthService,
+    public headerSRV: HeaderService,
     private messageService: MessageService
   ) {
 
@@ -23,6 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.headerSRV.hide();
 
     if (this.authSRV.isAuthenticated()) {
       // this.router.navigate(['/home']);
