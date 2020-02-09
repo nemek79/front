@@ -15,6 +15,8 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 // componentes
 import { AppComponent } from './app.component';
@@ -53,10 +55,12 @@ const routes: Routes = [
     CardModule,
     InputTextModule,
     CheckboxModule,
-    ButtonModule
+    ButtonModule,
+    ToastModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
