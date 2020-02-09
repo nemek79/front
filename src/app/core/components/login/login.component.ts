@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Usuario } from '../../models/usuario';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -9,23 +10,25 @@ import { Usuario } from '../../models/usuario';
 })
 export class LoginComponent implements OnInit {
 
-  usuario: Usuario;
+  public usuario: Usuario;
 
   constructor(
     private authSRV: AuthService
   ) {
 
     this.usuario = new Usuario();
-    this.usuario.username = 'david';
-    this.usuario.password = '12345';
-    this.login();
+
   }
 
   ngOnInit() {
   }
 
-
   login(): void {
+
+    if (this.usuario.username == null || this.usuario.password == null) {
+      swal.fire('Error Login', 'Usuario o contraseña vacías!', 'error');
+      return;
+    }
 
     this.authSRV.login(this.usuario).subscribe( response => {
       console.log(response);
