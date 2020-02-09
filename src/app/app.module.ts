@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // needed for primeng
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
+// Peticiones HTTP
+import { HttpClientModule } from '@angular/common/http';
 
 // import fortawesome
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -16,6 +16,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 
+// componentes
+import { AppComponent } from './app.component';
+import { LoginComponent } from './core/components/login/login.component';
+
+// servicios
+import { AuthService } from './core/services/auth.service';
 
 // Rutas
 import {RouterModule, Routes} from '@angular/router';
@@ -40,6 +46,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     PasswordModule,
@@ -48,7 +55,9 @@ const routes: Routes = [
     CheckboxModule,
     ButtonModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
