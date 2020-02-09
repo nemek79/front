@@ -23,6 +23,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if (this.authSRV.isAuthenticated()) {
+      // this.router.navigate(['/home']);
+    }
+
   }
 
   login(): void {
@@ -36,9 +41,14 @@ export class LoginComponent implements OnInit {
     }
 
     this.authSRV.login(this.usuario).subscribe( response => {
+
       this.messageService.add(
         {key: 'msgLogin', severity: 'success', summary: 'Acceso!', detail: 'Acceso permitido'}
       );
+
+      this.authSRV.guardarUsuario(response.access_token);
+      this.authSRV.guardarToken(response.access_token);
+
     }, err => {
 
       if (err.error.error === 'unauthorized' || err.error.error === 'invalid_grant') {
