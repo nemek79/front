@@ -1,8 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // needed for primeng
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+
+// import fortawesome
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+// imports primeng
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PasswordModule } from 'primeng/password';
+
 
 // Rutas
 import {RouterModule, Routes} from '@angular/router';
@@ -26,7 +35,10 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    BrowserAnimationsModule,
+    PasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]
