@@ -11,6 +11,10 @@ import { LoginComponent } from './components/login/login.component';
 // imports primeng
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordModule } from 'primeng/password';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ButtonModule } from 'primeng/button';
 
 
 // Rutas
@@ -38,7 +42,11 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     BrowserAnimationsModule,
-    PasswordModule
+    PasswordModule,
+    CardModule,
+    InputTextModule,
+    CheckboxModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
