@@ -18,7 +18,10 @@ import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
-
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { DropdownModule } from 'primeng/dropdown';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import {  } from 'primeng/menu/menu';
 // componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/components/login/login.component';
@@ -31,6 +34,7 @@ import { HeaderService } from './core/services/header.service';
 // Rutas
 import {RouterModule, Routes} from '@angular/router';
 import { HeaderComponent } from './core/components/comunes/header/header.component';
+import { TestComponent } from './core/components/comunes/test/test.component';
 
 
 const routes: Routes = [
@@ -54,7 +58,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,10 @@ const routes: Routes = [
     CheckboxModule,
     ButtonModule,
     ToastModule,
-    MenuModule
+    MenuModule,
+    KeyFilterModule,
+    DropdownModule,
+    SplitButtonModule
   ],
   providers: [
     AuthService,
