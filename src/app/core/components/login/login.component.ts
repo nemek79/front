@@ -92,6 +92,10 @@ export class LoginComponent implements OnInit {
     this.usuario.username = event;
   }
 
+  handleValuePassword(event): void {
+    this.usuario.password = event;
+  }
+
 }
 
 
