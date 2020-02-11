@@ -43,6 +43,7 @@ import { TestComponent } from './core/components/comunes/test/test.component';
 import { LoaderComponent } from './core/components/loader/loader.component';
 import { ButtonComponent } from './core/components/comunes/button/button.component';
 import { InputtextComponent } from './core/components/comunes/inputtext/inputtext.component';
+import { InputpasswordComponent } from './core/components/comunes/inputpassword/inputpassword.component';
 
 
 const routes: Routes = [
@@ -70,7 +71,8 @@ const routes: Routes = [
     TestComponent,
     LoaderComponent,
     ButtonComponent,
-    InputtextComponent
+    InputtextComponent,
+    InputpasswordComponent
   ],
   imports: [
     BrowserModule,
