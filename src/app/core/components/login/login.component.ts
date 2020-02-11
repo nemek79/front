@@ -75,8 +75,9 @@ export class LoginComponent implements OnInit {
           {key: 'msgLogin', severity: 'error',
           summary: 'Error!', detail: 'Error desconocido. Por favor, póngase en contacto con el administrador de la aplicación'}
         );
-        this.loadingLogin(false);
       }
+
+      this.loadingLogin(false);
 
     });
   }
