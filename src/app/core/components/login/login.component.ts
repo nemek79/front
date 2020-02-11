@@ -88,6 +88,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  handleValueUser(event): void {
+    this.usuario.username = event;
+  }
+
 }
 
 
