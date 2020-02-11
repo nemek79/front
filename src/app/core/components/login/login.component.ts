@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   public label = 'Entrar';
   public loadValue: boolean = false;
 
-  public disablelogin = true;
+  public disablelogin = false;
 
   constructor(
     private authSRV: AuthService,
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loadValue = true;
+    this.loadingLogin(true);
 
     this.authSRV.login(this.usuario).subscribe( response => {
 
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
       this.authSRV.guardarUsuario(response.access_token);
       this.authSRV.guardarToken(response.access_token);
 
-      this.loadValue = false;
+      this.loadingLogin(false);
 
     }, err => {
 
@@ -70,16 +70,25 @@ export class LoginComponent implements OnInit {
         this.messageService.add(
           {key: 'msgLogin', severity: 'error', summary: 'Error!', detail: 'Las credenciales no son correctas'}
         );
-        this.loadValue = false;
       } else {
         this.messageService.add(
           {key: 'msgLogin', severity: 'error',
           summary: 'Error!', detail: 'Error desconocido. Por favor, póngase en contacto con el administrador de la aplicación'}
         );
-        this.loadValue = false;
+        this.loadingLogin(false);
       }
 
     });
   }
 
+  private loadingLogin(estado: boolean): void {
+
+    this.loadValue = estado;
+    this.disablelogin = estado;
+
+  }
+
 }
+
+
+
