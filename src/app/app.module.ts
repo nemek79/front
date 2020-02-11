@@ -42,6 +42,7 @@ import { HeaderComponent } from './core/components/comunes/header/header.compone
 import { TestComponent } from './core/components/comunes/test/test.component';
 import { LoaderComponent } from './core/components/loader/loader.component';
 import { ButtonComponent } from './core/components/comunes/button/button.component';
+import { InputtextComponent } from './core/components/comunes/inputtext/inputtext.component';
 
 
 const routes: Routes = [
@@ -68,7 +69,8 @@ const routes: Routes = [
     HeaderComponent,
     TestComponent,
     LoaderComponent,
-    ButtonComponent
+    ButtonComponent,
+    InputtextComponent
   ],
   imports: [
     BrowserModule,

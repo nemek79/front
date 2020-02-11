@@ -13,6 +13,7 @@ export class TestComponent implements OnInit {
   public iconBtn = 'pi pi-cloud';
   public label = 'test button';
   public loadValue:boolean = false;
+  public usuario = 'pepe';
 
   constructor() { }
 
@@ -34,9 +35,13 @@ export class TestComponent implements OnInit {
 
   handleClick(event) {
 
-    console.log('clicked')
+    console.log('clicked - '+this.usuario)
     this.loadValue = !this.loadValue;
 
+  }
+
+  handleValue(event) {
+    this.usuario = event;
   }
 
 }

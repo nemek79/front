@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="user">{{label}}</label>
+  <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon" *ngIf="icon">
+        <i class="{{icon}}" style="line-height: 1.25;"></i>
+      </span>
+      <input type="text" 
+              pInputText 
+              id="id" 
+              name="id"
+              [(ngModel)]="model" 
+              (ngModelChange)="handleChange($event)"
+              >         
+  </div>
+</div>
