@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   public label = 'Entrar';
   public loadValue: boolean = false;
 
+  public disablelogin = true;
+
   constructor(
     private authSRV: AuthService,
     public headerSRV: HeaderService,
