@@ -5,6 +5,10 @@ import { FormsModule } from '@angular/forms'; // needed for primeng
 // Peticiones HTTP
 import { HttpClientModule } from '@angular/common/http';
 
+// Interceptors
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptorService } from './core/interceptors/LoaderInterceptor.service';
+
 // import fortawesome
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -30,11 +34,13 @@ import { HomeComponent } from './core/components/home/home.component';
 // servicios
 import { AuthService } from './core/services/auth.service';
 import { HeaderService } from './core/services/header.service';
+import { LoaderService } from './core/services/loader.service';
 
 // Rutas
 import {RouterModule, Routes} from '@angular/router';
 import { HeaderComponent } from './core/components/comunes/header/header.component';
 import { TestComponent } from './core/components/comunes/test/test.component';
+import { LoaderComponent } from './core/components/loader/loader.component';
 
 
 const routes: Routes = [
@@ -51,7 +57,7 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   }
-]
+];
 
 @NgModule({
   declarations: [
@@ -59,7 +65,8 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    TestComponent
+    TestComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +88,13 @@ const routes: Routes = [
   providers: [
     AuthService,
     MessageService,
-    HeaderService
+    LoaderService,
+    HeaderService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

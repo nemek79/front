@@ -59,6 +59,11 @@ export class LoginComponent implements OnInit {
         this.messageService.add(
           {key: 'msgLogin', severity: 'error', summary: 'Error!', detail: 'Las credenciales no son correctas'}
         );
+      } else {
+        this.messageService.add(
+          {key: 'msgLogin', severity: 'error',
+          summary: 'Error!', detail: 'Error desconocido. Por favor, póngase en contacto con el administrador de la aplicación'}
+        );
       }
 
     });
