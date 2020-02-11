@@ -12,6 +12,8 @@
                         icon="pi pi-user"
                         [(model)]="usuario.username"
                         (value)="handleValueUser($event)"
+                        (onchange)="handleChange($event)"
+                        error= {{error}}
                     >
                     </vrl-inputtext>
                     <vrl-inputpassword

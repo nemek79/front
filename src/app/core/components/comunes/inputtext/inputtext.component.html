@@ -10,6 +10,7 @@
               name={{id}}
               [(ngModel)]="model" 
               (ngModelChange)="handleChange($event)"
+              [ngClass]="{'has-error': error=='true'?true:false}"
               >         
   </div>
 </div>
