@@ -1,6 +1,21 @@
-<p-splitButton 
+<!-- <p-splitButton 
     label = "Save" 
     icon = "pi pi-user" 
     (onClick) = "save()" 
     [model] = "items">
-</p-splitButton>
+</p-splitButton> -->
+<!-- <button pButton 
+        type="button" 
+        label="Click"
+        icon={{iconBtn}} 
+        iconPos="right" 
+        (click)="handleClick($event)">
+</button> -->
+
+<vrl-button 
+    label="prueba" 
+    iconBtn="pi pi-globe"
+    loading= {{loadValue}}
+    (clicked)="handleClick($event)"
+    >
+</vrl-button>

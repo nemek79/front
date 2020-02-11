@@ -41,6 +41,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { HeaderComponent } from './core/components/comunes/header/header.component';
 import { TestComponent } from './core/components/comunes/test/test.component';
 import { LoaderComponent } from './core/components/loader/loader.component';
+import { ButtonComponent } from './core/components/comunes/button/button.component';
 
 
 const routes: Routes = [
@@ -66,7 +67,8 @@ const routes: Routes = [
     HomeComponent,
     HeaderComponent,
     TestComponent,
-    LoaderComponent
+    LoaderComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

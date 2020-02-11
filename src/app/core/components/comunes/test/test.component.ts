@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { MenuItem } from 'primeng/api/menuitem';
 
 @Component({
@@ -8,33 +8,33 @@ import { MenuItem } from 'primeng/api/menuitem';
 })
 export class TestComponent implements OnInit {
 
-  items: MenuItem[];
+  // items: MenuItem[];
 
+  public iconBtn = 'undefined';
+  public loadValue = false;
 
   constructor() { }
 
   ngOnInit() {
-
-    this.items = [
-      {label: 'Update', icon: 'pi pi-refresh', command: () => {
-          this.update();
-      }},
-      {label: 'Delete', icon: 'pi pi-times', command: () => {
-          this.delete();
-      }},
-      {label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io'},
-      {separator: true},
-      {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
-  ];
+    
+  //   this.items = [
+  //     {label: 'Update', icon: 'pi pi-refresh', command: () => {
+  //         this.update();
+  //     }},
+  //     {label: 'Delete', icon: 'pi pi-times', command: () => {
+  //         this.delete();
+  //     }},
+  //     {label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io'},
+  //     {separator: true},
+  //     {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
+  // ];
 
   }
 
-  public update() {
-    console.log('updating..');
-  }
+  handleClick(event) {
 
-  public delete() {
-    console.log('deleting..');
+    this.loadValue = !this.loadValue;
+
   }
 
 }
