@@ -8,7 +8,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange, Event
 export class ButtonComponent implements OnInit, OnChanges  {
 
   @Input() label = '';
-  @Input() iconBtn = '';
+  @Input() iconbtn = '';
   @Input() loading = false;
 
   @Output() clicked = new EventEmitter<any[]>();
@@ -23,10 +23,10 @@ export class ButtonComponent implements OnInit, OnChanges  {
       this.label = 'empty';
     }
 
-    if (!this.iconBtn || this.iconBtn === '') {
-      this.iconBtn = 'undefined';
+    if (!this.iconbtn || this.iconbtn === '') {
+      this.iconbtn = 'undefined';
     } else {
-      this.iconInit = this.iconBtn;
+      this.iconInit = this.iconbtn;
     }
 
   }
@@ -38,15 +38,13 @@ export class ButtonComponent implements OnInit, OnChanges  {
 
 
       if (property === 'loading' ) {
-        console.log('Previous:', changes[property].previousValue);
-        console.log('Current:', changes[property].currentValue);
-        console.log('firstChange:', changes[property].firstChange);
-        if ( changes[property].currentValue === 'true' ) {
-          console.log('spininnnng')
-          this.iconBtn = 'pi pi-spin pi-spinner';
-        } else {
-          console.log('quieto')
-          this.iconBtn =  this.iconInit;
+
+        if ( changes[property].currentValue === 'true' &&  changes[property].previousValue === 'false') {
+
+          this.iconbtn = 'pi pi-spin pi-spinner';
+        } else if ( changes[property].currentValue === 'false' &&  changes[property].previousValue === 'true'){
+
+          this.iconbtn =  this.iconInit;
         }
 
       }

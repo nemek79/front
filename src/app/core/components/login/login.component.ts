@@ -14,6 +14,11 @@ export class LoginComponent implements OnInit {
 
   public usuario: Usuario;
 
+  // configuración del botón de entrar
+  // public iconBtn = 'pi pi-cloud';
+  public label = 'Entrar';
+  public loadValue: boolean = false;
+
   constructor(
     private authSRV: AuthService,
     public headerSRV: HeaderService,
@@ -44,6 +49,8 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.loadValue = true;
+
     this.authSRV.login(this.usuario).subscribe( response => {
 
       this.messageService.add(
@@ -53,17 +60,21 @@ export class LoginComponent implements OnInit {
       this.authSRV.guardarUsuario(response.access_token);
       this.authSRV.guardarToken(response.access_token);
 
+      this.loadValue = false;
+
     }, err => {
 
       if (err.error.error === 'unauthorized' || err.error.error === 'invalid_grant') {
         this.messageService.add(
           {key: 'msgLogin', severity: 'error', summary: 'Error!', detail: 'Las credenciales no son correctas'}
         );
+        this.loadValue = false;
       } else {
         this.messageService.add(
           {key: 'msgLogin', severity: 'error',
           summary: 'Error!', detail: 'Error desconocido. Por favor, póngase en contacto con el administrador de la aplicación'}
         );
+        this.loadValue = false;
       }
 
     });

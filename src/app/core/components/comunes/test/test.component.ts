@@ -10,8 +10,9 @@ export class TestComponent implements OnInit {
 
   // items: MenuItem[];
 
-  public iconBtn = 'undefined';
-  public loadValue = false;
+  public iconBtn = 'pi pi-cloud';
+  public label = 'test button';
+  public loadValue:boolean = false;
 
   constructor() { }
 
@@ -33,6 +34,7 @@ export class TestComponent implements OnInit {
 
   handleClick(event) {
 
+    console.log('clicked')
     this.loadValue = !this.loadValue;
 
   }

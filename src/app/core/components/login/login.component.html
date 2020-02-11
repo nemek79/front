@@ -44,7 +44,12 @@
                         </div>
                     </div> 
                     <div class="form-group">
-                        <p-button label="Entrar" class="btn-block" (click)="login()"></p-button>
+                        <vrl-button 
+                            label={{label}}
+                            loading={{loadValue}}
+                            (clicked)="login()"
+                        >
+                        </vrl-button>
                     </div> 
                 </form>
             </p-card>
