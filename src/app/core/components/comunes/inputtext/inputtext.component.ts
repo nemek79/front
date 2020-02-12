@@ -15,13 +15,10 @@ export class InputtextComponent implements OnInit {
 
   @Output() value = new EventEmitter<any[]>();
 
-  public classes = '';
-
   constructor() { }
 
   ngOnInit() {
 
-    console.log('error: '+ this.error)
 
   }
 

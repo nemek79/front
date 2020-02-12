@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   public disablelogin = false;
 
-  public error = false;
+  public errorUser = false;
+  public errorPass = false;
 
   constructor(
     private authSRV: AuthService,
@@ -47,7 +48,13 @@ export class LoginComponent implements OnInit {
 
     if (this.usuario.username == null || this.usuario.password == null) {
       // swal.fire('Error Login', 'Usuario o contraseña vacías!', 'error');
-      this.error =true;
+      if (this.usuario.username == null) {
+        this.errorUser = true;
+      }
+      if (this.usuario.password == null) {
+        this.errorPass = true;
+      }
+
       this.messageService.add(
         {key: 'msgLogin', severity: 'warn', summary: 'Atención!', detail: 'El usuario y la contraseña son obligatorios'}
       );
@@ -93,17 +100,19 @@ export class LoginComponent implements OnInit {
   }
 
   handleValueUser(event): void {
+
     this.usuario.username = event;
+    if (this.usuario.username != null && this.usuario.username.length > 0) {
+      this.errorUser = false;
+    }
   }
 
   handleValuePassword(event): void {
     this.usuario.password = event;
+    if (this.usuario.password != null && this.usuario.password.length > 0) {
+      this.errorPass = false;
+    }
   }
-
-  handleChange(event) {
-    this.error = false;
-  }
-
 
 }
 
