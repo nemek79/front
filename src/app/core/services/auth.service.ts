@@ -113,6 +113,8 @@ export class AuthService {
 
     logout(): void {
 
+        console.log('cerrando sesión');
+
         this._token = null;
         this._usuario = null;
         sessionStorage.clear();

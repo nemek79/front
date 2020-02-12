@@ -22,4 +22,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  handleSelection(event): void {
+    console.log('======> header.handleselection')
+    this.authSRV.logout();
+  }
+
 }

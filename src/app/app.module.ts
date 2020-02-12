@@ -25,11 +25,19 @@ import { MenuModule } from 'primeng/menu';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { DropdownModule } from 'primeng/dropdown';
 import { SplitButtonModule } from 'primeng/splitbutton';
-import {  } from 'primeng/menu/menu';
+import { AccordionModule } from 'primeng/accordion';
+
 // componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { HomeComponent } from './core/components/home/home.component';
+import { HeaderComponent } from './core/components/comunes/header/header.component';
+import { TestComponent } from './core/components/comunes/test/test.component';
+import { LoaderComponent } from './core/components/loader/loader.component';
+import { ButtonComponent } from './core/components/comunes/button/button.component';
+import { InputtextComponent } from './core/components/comunes/inputtext/inputtext.component';
+import { InputpasswordComponent } from './core/components/comunes/inputpassword/inputpassword.component';
+import { CombouserComponent } from './core/components/comunes/header/combouser/combouser.component';
 
 // servicios
 import { AuthService } from './core/services/auth.service';
@@ -38,12 +46,6 @@ import { LoaderService } from './core/services/loader.service';
 
 // Rutas
 import {RouterModule, Routes} from '@angular/router';
-import { HeaderComponent } from './core/components/comunes/header/header.component';
-import { TestComponent } from './core/components/comunes/test/test.component';
-import { LoaderComponent } from './core/components/loader/loader.component';
-import { ButtonComponent } from './core/components/comunes/button/button.component';
-import { InputtextComponent } from './core/components/comunes/inputtext/inputtext.component';
-import { InputpasswordComponent } from './core/components/comunes/inputpassword/inputpassword.component';
 
 
 const routes: Routes = [
@@ -72,7 +74,8 @@ const routes: Routes = [
     LoaderComponent,
     ButtonComponent,
     InputtextComponent,
-    InputpasswordComponent
+    InputpasswordComponent,
+    CombouserComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +92,8 @@ const routes: Routes = [
     MenuModule,
     KeyFilterModule,
     DropdownModule,
-    SplitButtonModule
+    SplitButtonModule,
+    AccordionModule
   ],
   providers: [
     AuthService,
