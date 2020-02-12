@@ -46,12 +46,16 @@ export class LoginComponent implements OnInit {
 
   login(): void {
 
-    if (this.usuario.username == null || this.usuario.password == null) {
+    if (this.usuario.username == null ||
+        this.usuario.password == null ||
+        this.usuario.username.trim() === '' ||
+        this.usuario.password.trim() === ''
+    ) {
       // swal.fire('Error Login', 'Usuario o contraseña vacías!', 'error');
-      if (this.usuario.username == null) {
+      if (this.usuario.username == null || this.usuario.username.trim() === '') {
         this.errorUser = true;
       }
-      if (this.usuario.password == null) {
+      if (this.usuario.password == null || this.usuario.password.trim() === '') {
         this.errorPass = true;
       }
 
