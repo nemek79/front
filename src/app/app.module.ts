@@ -51,6 +51,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { AuthGuard } from './core/security/auth.guard';
 import { RoleGuard } from './core/security/role.guard';
 import { CrudComponent } from './core/pages/crud/crud.component';
+import { MenulateralComponent } from './core/components/comunes/menulateral/menulateral.component';
 
 const routes: Routes = [
   {
@@ -84,7 +85,8 @@ const routes: Routes = [
     InputtextComponent,
     InputpasswordComponent,
     CombouserComponent,
-    CrudComponent
+    CrudComponent,
+    MenulateralComponent
   ],
   imports: [
     BrowserModule,
