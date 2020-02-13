@@ -11,7 +11,7 @@ export class InputpasswordComponent implements OnInit {
   @Input() model = '';
   @Input() id = '';
   @Input() icon = '';
-  @Input() error: boolean = false;
+  @Input() error = false;
 
   @Output() value = new EventEmitter<any[]>();
 

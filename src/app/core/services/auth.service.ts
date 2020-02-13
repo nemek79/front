@@ -103,8 +103,6 @@ export class AuthService {
 
     hasRole(role: string): boolean {
 
-        console.log('=========> hasRole: '+this.getUsuario().roles);
-
         if (this.getUsuario().roles.includes(role)) {
           return true;
         }

@@ -21,8 +21,6 @@ export class ButtonComponent implements OnInit, OnChanges  {
 
   ngOnInit() {
 
-    console.log(this.disabled);
-
     if (!this.label || this.label === '') {
       this.label = 'empty';
     }
