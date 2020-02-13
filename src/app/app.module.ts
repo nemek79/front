@@ -29,11 +29,11 @@ import { AccordionModule } from 'primeng/accordion';
 
 // componentes
 import { AppComponent } from './app.component';
-import { LoginComponent } from './core/components/login/login.component';
-import { HomeComponent } from './core/components/home/home.component';
+import { LoginComponent } from './core/pages/login/login.component';
+import { HomeComponent } from './core/pages/home/home.component';
 import { HeaderComponent } from './core/components/comunes/header/header.component';
 import { TestComponent } from './core/components/comunes/test/test.component';
-import { LoaderComponent } from './core/components/loader/loader.component';
+import { LoaderComponent } from './core/components/comunes/loader/loader.component';
 import { ButtonComponent } from './core/components/comunes/button/button.component';
 import { InputtextComponent } from './core/components/comunes/inputtext/inputtext.component';
 import { InputpasswordComponent } from './core/components/comunes/inputpassword/inputpassword.component';
@@ -47,6 +47,9 @@ import { LoaderService } from './core/services/loader.service';
 // Rutas
 import {RouterModule, Routes} from '@angular/router';
 
+// Guards
+import { AuthGuard } from './core/security/auth.guard';
+import { RoleGuard } from './core/security/role.guard';
 
 const routes: Routes = [
   {
@@ -60,7 +63,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent, canActivate: [AuthGuard, RoleGuard], data: {role: ['ROLE_USER', 'ROLE_ADMIN']}
   }
 ];
 

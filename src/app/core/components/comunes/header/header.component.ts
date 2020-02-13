@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from 'src/app/core/services/header.service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private authSRV: AuthService,
-    public headerSRV: HeaderService
+    public headerSRV: HeaderService,
+    private route: Router
   ) { }
 
   ngOnInit() {
@@ -23,8 +25,12 @@ export class HeaderComponent implements OnInit {
   }
 
   handleSelection(event): void {
-    console.log('======> header.handleselection')
-    this.authSRV.logout();
+
+    if (event[0] === 'close_session') {
+      this.authSRV.logout();
+      this.route.navigate(['/login']);
+    }
+
   }
 
 }

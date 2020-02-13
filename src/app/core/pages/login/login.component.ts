@@ -4,6 +4,7 @@ import { Usuario } from '../../models/usuario';
 import { MessageService } from 'primeng/api';
 import swal from 'sweetalert2';
 import { HeaderService } from '../../services/header.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authSRV: AuthService,
     public headerSRV: HeaderService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private route: Router
   ) {
 
     this.usuario = new Usuario();
@@ -77,6 +79,7 @@ export class LoginComponent implements OnInit {
       this.authSRV.guardarToken(response.access_token);
 
       this.loadingLogin(false);
+      this.route.navigate(['/home']);
 
     }, err => {
 
