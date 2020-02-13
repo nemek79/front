@@ -1,10 +1,11 @@
+import { SidebarService } from 'src/app/core/services/sidebar.service';
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from 'src/app/core/services/header.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
+  selector: 'vrl-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -15,6 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authSRV: AuthService,
     public headerSRV: HeaderService,
+    public sidebarSRV: SidebarService,
     private route: Router
   ) { }
 

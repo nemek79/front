@@ -43,6 +43,7 @@ import { CombouserComponent } from './core/components/comunes/header/combouser/c
 import { AuthService } from './core/services/auth.service';
 import { HeaderService } from './core/services/header.service';
 import { LoaderService } from './core/services/loader.service';
+import { SidebarService } from './core/services/sidebar.service';
 
 // Rutas
 import {RouterModule, Routes} from '@angular/router';
@@ -111,6 +112,7 @@ const routes: Routes = [
     MessageService,
     LoaderService,
     HeaderService,
+    SidebarService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptorService,
