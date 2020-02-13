@@ -50,6 +50,7 @@ import {RouterModule, Routes} from '@angular/router';
 // Guards
 import { AuthGuard } from './core/security/auth.guard';
 import { RoleGuard } from './core/security/role.guard';
+import { CrudComponent } from './core/pages/crud/crud.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent, canActivate: [AuthGuard, RoleGuard], data: {role: ['ROLE_USER', 'ROLE_ADMIN']}
+  },
+  {
+    path: 'democrud',
+    component: CrudComponent, canActivate: [AuthGuard, RoleGuard], data: {role: ['ROLE_ADMIN']}
   }
 ];
 
@@ -78,7 +83,8 @@ const routes: Routes = [
     ButtonComponent,
     InputtextComponent,
     InputpasswordComponent,
-    CombouserComponent
+    CombouserComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
