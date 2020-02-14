@@ -11,8 +11,8 @@ import { ModelState } from 'src/app/core/models/modelshow';
 })
 export class MenulateralComponent implements OnInit, OnDestroy {
 
-  @Input() id: string;
-  @Input() title = '';
+  @Input() items: any[] ;
+  @Input() label;
 
   constructor(
     public sidebarSRV: SidebarService,
@@ -23,8 +23,8 @@ export class MenulateralComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.renderer.setStyle(document.getElementById('mySidebar'), 'top', 
-    document.getElementById('vrl-header').clientHeight + 'px');
+    this.renderer.setStyle(document.getElementById('mySidebar'), 'top',
+                            document.getElementById('vrl-header').clientHeight + 'px');
 
     this.sidebarSRV.loaderState
     .subscribe((state: ModelState) => {
@@ -42,18 +42,15 @@ export class MenulateralComponent implements OnInit, OnDestroy {
   }
 
   public open(): void {
-
-    this.renderer.setStyle(document.getElementById('mySidebar'), 'width', '250px');
-    //this.renderer.setStyle(document.getElementById('vrl-header'), 'marginLeft', '250px');
-    this.renderer.setStyle(document.getElementById('main'), 'marginLeft', '250px');
+    this.renderer.setStyle(document.getElementById('mySidebar'), 'width', '20%');
+    // this.renderer.setStyle(document.getElementById('vrl-header'), 'marginLeft', '250px');
+    // this.renderer.setStyle(document.getElementById('main'), 'marginLeft', '250px');
 
   }
   public close(): void {
-    console.log('=========> closinggg')
     this.renderer.setStyle(document.getElementById('mySidebar'), 'width', '0');
-    //this.renderer.setStyle(document.getElementById('vrl-header'), 'marginLeft', '0');
-    this.renderer.setStyle(document.getElementById('main'), 'marginLeft', '0');
+    // this.renderer.setStyle(document.getElementById('vrl-header'), 'marginLeft', '0');
+    // this.renderer.setStyle(document.getElementById('main'), 'marginLeft', '0');
   }
-
 
 }

@@ -1,12 +1,18 @@
 <div id="mySidebar" class="sidebar">
-  <a  class="closebtn" (click)="close()">&times;</a>
-  <div class="menu-option">
-    <i class="pi pi-cloud"></i>
-    <span class="menu-label">Clientes</span>
+
+  <div *ngFor="let item of items" class="container">
+    <div class="row menu-container">
+      <div class="col menu-icon">
+        <i class="{{item.icon}}"></i>
+      </div>
+      <div class="col menu-texto">
+        {{item.label }}
+      </div>
+      <div class="col menu-opener">
+        <i class="pi pi-angle-left opener"></i>
+      </div>
+    </div>
   </div>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <div class="dropdown-divider"></div>
-  <a href="#">Contact</a>
+
 </div>
 

@@ -6,9 +6,9 @@
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: rgba(181, 192, 202, 0.205); /* Black*/
+  background-color: rgb(229, 234, 238);
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
+  padding-top: 0px;
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
 }
 
@@ -51,12 +51,40 @@
 }
 
 
-.menu-option {
-  background-color: aquamarine;
-  padding-top: 1em;
-  padding-bottom: 1em;
+.menu-container {
+  width: 100%;
+  height: 100%;
   padding-left: 1em;
+  padding-right: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
 
+.menu-container:hover {
+  cursor: pointer;
+  background-color: rgb(126, 158, 189);
+}
+
+.menu-container .menu-option .menu-label {
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: none;
+  width: 80%;
+  background-color: red;
+}
+
+
+.sidebar i {
+  margin-right: 0.5em;
+  vertical-align: middle;
+  font-size: 1.5em;
+  font-weight: normal;
+  color: rgb(88, 88, 88);
+  background-color: green;
+}
+
+.sidebar i .opener {
+  width: 10%;
 }
 
 

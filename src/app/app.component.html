@@ -1,7 +1,11 @@
 <vrl-header *ngIf="headerSRV.visible"></vrl-header>
 
-<vrl-menulateral>
-</vrl-menulateral>
+<vrl-menulateral
+  [items] = menuItems
+  label = {{label}}
+>
+</vrl-menulateral
+>
 
 <div id="main">
 <router-outlet></router-outlet>
